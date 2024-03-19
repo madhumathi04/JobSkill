@@ -16,7 +16,7 @@ jobs:
         run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "madhumathi0406" --password-stdin
 
       - name: build docker image
-        run:  docker build -t madhumathi0406/jobskillapp:latest
+        run:  docker build -t madhumathi0406/jobskillapp:latest .
 
       - name: Push Docker image to Docker Hub
         run: docker push madhumathi0406/jobskillapp:latest
