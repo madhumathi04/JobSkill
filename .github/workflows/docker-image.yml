@@ -12,11 +12,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Build Docker image
-        run: docker build -t madhumathi0406/jobskillapp:latest .
+      - name: log in to docker hub
+        run: echo "${{ secrets.DOCKER_TOKEN }}" | docker login -u "madhumathi0406" --password-stdin
 
-      - name: Log in to Docker Hub
-        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "madhumathi0406" --password-stdin
+      - name: build docker image
+        run:  docker image build -t madhumathi0406/jobskillapp:latest
 
       - name: Push Docker image to Docker Hub
         run: docker push madhumathi0406/jobskillapp:latest
