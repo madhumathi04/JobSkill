@@ -1,12 +1,9 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: my-rollout
+  name: my-rollout   
+  namespace: rollout-ns
 spec:
-  replicas: 5
-  selector:
-    matchLabels:
-      app: jobskills
   template:
     metadata:
       labels:
@@ -17,8 +14,14 @@ spec:
         image: madhumathi0406/jobskillapp:latest
         ports:
         - containerPort: 5000
+  selector:
+    matchLabels:
+      app: jobskills
+  replicas: 10
   strategy:
     canary:
       steps:
       - setWeight: 25
-        pause: {}
+      - pause: {}
+
+
