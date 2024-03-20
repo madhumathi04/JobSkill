@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
   name: my-rollout   
-  namespace: rollout-ns
+  namespace: jobskills-ns
 spec:
   template:
     metadata:
@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: jobskills
-        image: madhumathi0406/jobskillapp:v1
+        image: madhumathi0406/jobskillapp:latest
         ports:
         - containerPort: 5000
   selector:
