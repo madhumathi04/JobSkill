@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jobskills
+  labels:
+    app: jobskills
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: jobskills
+  template:
+    metadata:
+      labels:
+        app: jobskills
+    spec:
+      containers:
+      - name: jobskills
+        image: madhumathi0406/jobskillapp
+        ports:
+        - containerPort: 5000
