@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: jobskills
-        image: madhumathi0406/jobskillapp:2.0
+        image: madhumathi0406/jobskillapp:v1
         ports:
         - containerPort: 5000
   selector:
